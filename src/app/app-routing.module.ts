@@ -9,10 +9,14 @@ import {
   NbResetPasswordComponent,
 } from '@nebular/auth';
 
+
+import { SudamericanaModule } from './pages/sudamericana/sudamericana.module';
+import { PaisesComponent } from './pages/sudamericana/paises/paises.component';
+
 const routes: Routes = [
   { path: 'pages', loadChildren: 'app/pages/pages.module#PagesModule' },
   {
-    path: 'auth',
+/*    path: 'auth',
     component: NbAuthComponent,
     children: [
       {
@@ -40,7 +44,10 @@ const routes: Routes = [
         component: NbResetPasswordComponent,
       },
     ],
-  },
+  },*/
+        path: 'paises',
+        component: PaisesComponent
+    },
   { path: '', redirectTo: 'pages', pathMatch: 'full' },
   { path: '**', redirectTo: 'pages' },
 ];
@@ -50,7 +57,8 @@ const config: ExtraOptions = {
 };
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, config)],
+  imports: [RouterModule.forRoot(routes, config),
+            SudamericanaModule,],
   exports: [RouterModule],
 })
 export class AppRoutingModule {
